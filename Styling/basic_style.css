@@ -1,0 +1,22 @@
+/* THIS CSS IS MEANT TO INCLUDE ALL THE CSS RULES THAT APPLY TO ALL PAGES */
+
+@font-face {
+    font-family: 'Jua Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Jua Regular'), url('./Content/Fonts/Jua-Regular.woff') format('woff');
+    }
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family:'Jua Regular';
+    font-weight:normal;
+    -webkit-text-stroke-width: .0625rem;
+    -webkit-text-stroke-color: #131010;
+    color: white;
+}
+
+body {
+    background-color: #D3E5EE;
+}
