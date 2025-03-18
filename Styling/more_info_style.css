@@ -16,6 +16,10 @@ a{
 
 p {
     font-size: 2rem;
+    width: 80%;
+    font-family: Arial, sans-serif;
+    -webkit-text-stroke-width: 0rem;
+    color: #E74001;
 }
 
 h1 {
