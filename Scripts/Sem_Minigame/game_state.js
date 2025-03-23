@@ -1,0 +1,1 @@
+console.log('Hello World, game_state has been loaded');

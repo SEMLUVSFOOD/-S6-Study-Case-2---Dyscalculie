@@ -1,0 +1,1 @@
+console.log('Hello World, score_counter has been loaded');
