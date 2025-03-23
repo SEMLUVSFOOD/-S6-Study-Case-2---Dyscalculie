@@ -1,4 +1,2 @@
-fetch("fetch.php")
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error("Error fetching data:", error));
+import './game_state.js';
+import './score_counter.js';
