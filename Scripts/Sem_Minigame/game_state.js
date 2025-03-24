@@ -1,13 +1,17 @@
-import { progressIncrease } from './score_counter.js';
+import { checkAnswer } from './score_counter.js';
 
 export function startGame() {
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
+    let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
     
-    progress = 0; // Reset the score
+    score = 0;
+    progress = 0; // Reset the progress
 
-    localStorage.setItem("progress", progress); // Save updated score
+    localStorage.setItem("progress", progress); // Save updated progress
+    localStorage.setItem("score", score); // Save updated progress
 
-     // Redirect to a new page (change 'game.html' to the correct file)
+
+     // Redirect to a new page 
      window.location.href = "sem_minigame_game_screen.html";
 
      // Generate and store 10 random numbers
@@ -21,12 +25,16 @@ export function generateRandomNumbers(count = 10) {
     
     for (let i = 0; i < count; i++) {
         let number;
+        // Generate a unique number according to the conditions
         do {
             number = Math.floor(Math.random() * 90) + 10; // generates a random number between 10 and 99
-        } while (Math.floor(number / 10) === number % 10 || number % 10 === 0); // checks if the tens and ones digits are the same or the ones digit is 0
+        } while (
+            Math.floor(number / 10) === number % 10 ||  // checks if the tens and ones digits are the same
+            number % 10 === 0 ||                        // checks if the ones digit is 0
+            numbers.includes(number)                    // checks if the number is already in the array
+        );   
         numbers.push(number); // add the number to the array
     }
-    
     return numbers;
 }
 
@@ -37,8 +45,8 @@ let option2 = document.querySelector(".option2");
 
 if(option1) {
     // Add event listeners to options
-    option1.addEventListener("click", () => progressIncrease());
-    option2.addEventListener("click", () => progressIncrease());   
+    option1.addEventListener("click", () => checkAnswer(1));
+    option2.addEventListener("click", () => checkAnswer(2));   
 }
 
 export function displayRandomNumber(){

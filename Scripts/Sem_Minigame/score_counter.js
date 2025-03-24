@@ -1,6 +1,7 @@
 import { displayRandomNumber } from './game_state.js';
 
 export function progressIncrease() {
+    console.log("in progress increase");
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
 
     progress++;
@@ -20,4 +21,32 @@ export function progressIncrease() {
     }
 
     displayRandomNumber();
+}
+
+export function checkAnswer(clickedButton) {
+    // Select the correct option based on clickedButton
+    let selectedOption;
+    if (clickedButton === 1) {
+        selectedOption = document.querySelector(".option1").innerHTML;
+    } else if (clickedButton === 2) {
+        selectedOption = document.querySelector(".option2").innerHTML;
+    }
+    
+    // Retrieve values from localStorage
+    let currentRandomNumbers = JSON.parse(localStorage.getItem("randomNumbers"));
+    let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
+    let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+
+    // Compare selected option with the correct answer
+    if (selectedOption === currentRandomNumbers[progress].toString()) {
+        score++; // Increment score if the answer is correct
+    }
+
+    // Save the updated score in localStorage
+    localStorage.setItem("score", score);
+
+    console.log("score = " + score);
+
+    // Call progressIncrease if needed
+    progressIncrease();
 }
