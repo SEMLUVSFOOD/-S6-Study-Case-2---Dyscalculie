@@ -15,9 +15,9 @@ document.addEventListener("keydown", (event) => {
 console.log("Saved Random Numbers:", JSON.parse(localStorage.getItem("randomNumbers")));
 
 
-// Update the displayed score
-let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
-let currentscoreElement = document.querySelector(".currentscore");
-if (currentscoreElement) {
-  currentscoreElement.innerText = `Progress: ${score}`;
+// Update the displayed progress
+let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
+let currentprogressElement = document.querySelector(".currentprogress");
+if (currentprogressElement) {
+  currentprogressElement.innerText = `Progress: ${progress}`;
 }
