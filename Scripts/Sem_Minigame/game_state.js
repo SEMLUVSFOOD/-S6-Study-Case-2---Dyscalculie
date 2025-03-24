@@ -80,3 +80,35 @@ export function displayRandomNumberButtons () {
         option2.innerHTML = number2;
     }
 }
+
+
+let randomNumberBox = document.querySelector(".RandomNumberBox");
+let answerBox = document.querySelector(".AnswerBox");
+
+
+export function hideShowElements () {
+    showRandomly();
+}
+
+
+// Function to show the box for 1 second at a random time within 10 seconds
+function showRandomly() {
+    // Random delay time between 0 and 9 seconds (0 - 9000 milliseconds)
+    let randomDelay = Math.random() * 9000;
+
+    // Set timeout to show the box after the random delay
+    setTimeout(function() {
+        // Show the RandomNumberBox
+        randomNumberBox.style.display = 'block';
+
+        // Hide the box after 1 second (1000 milliseconds)
+        setTimeout(function() {
+            randomNumberBox.style.display = 'none';
+
+            // Wait for 2 seconds before showing the answerBox
+            setTimeout(function() {
+                answerBox.style.display = 'block';
+            }, 1500); // 2-second delay before displaying answerBox
+        }, 1000); // Hide after 1 second
+    }, randomDelay);
+}

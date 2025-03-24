@@ -1,5 +1,7 @@
 import { startGame } from './game_state.js';
 import { displayRandomNumber } from './game_state.js';
+import { hideShowElements } from './game_state.js';
+
 
 let startGameButton = document.querySelector(".startGame");
 if (startGameButton) {
@@ -23,3 +25,11 @@ let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem(
 let currentRandomNumbers = JSON.parse(localStorage.getItem("randomNumbers"));
 console.log("Saved Random Numbers:", currentRandomNumbers);
 displayRandomNumber();
+
+hideShowElements();
+
+let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+let resultElement = document.querySelector(".results");
+if(resultElement) {
+  resultElement.innerHTML = score;
+}

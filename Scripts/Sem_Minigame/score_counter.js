@@ -1,15 +1,14 @@
-import { displayRandomNumber } from './game_state.js';
+import { displayRandomNumber, hideShowElements } from './game_state.js';
 
 export function progressIncrease() {
-    console.log("in progress increase");
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
 
     progress++;
 
     // Check if score hits 10, then reset
-    if (progress >= 10) {
+    if (progress >= 2) {
         progress = 0; // Reset the score
-        window.location.href = "sem_minigame.html";
+        window.location.href = "sem_minigame_results.html";
     }
 
     localStorage.setItem("progress", progress); // Save updated score
@@ -21,9 +20,13 @@ export function progressIncrease() {
     }
 
     displayRandomNumber();
+    hideShowElements();
 }
 
 export function checkAnswer(clickedButton) {
+    let answerBox = document.querySelector(".AnswerBox");
+    answerBox.style.display = 'none';
+
     // Select the correct option based on clickedButton
     let selectedOption;
     if (clickedButton === 1) {
