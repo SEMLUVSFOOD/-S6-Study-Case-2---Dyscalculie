@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pieter Minigame</title>
     <script defer src="../Scripts/Pieter_Minigame/script.js" type="module"></script>
+
+    <style>
+        .traffic-light { display: flex; flex-direction: column; align-items: center; margin: 20px; }
+        .light { width: 40px; height: 40px; border-radius: 50%; background-color: grey; margin: 5px; }
+        .car { font-size: 30px; margin-top: 20px; }
+    </style>
+
 </head>
 <body>
 
-    this is the body 
+    <a href="/index.html"> <button>Terug naar home </button></a>
+
+    <h1>Timer</h1>
+    <p>Tijd over: <span id="timer">-</span> sec</p>
+    
+    <button id="startBtn">Start</button>
 
 </body>
 </html>
