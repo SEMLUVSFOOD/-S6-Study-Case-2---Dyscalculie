@@ -1,5 +1,5 @@
-import { progressIncrease } from './score_counter.js';
 import { startGame } from './game_state.js';
+import { displayRandomNumber } from './game_state.js';
 
 let startGameButton = document.querySelector(".startGame");
 if (startGameButton) {
@@ -12,12 +12,14 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-console.log("Saved Random Numbers:", JSON.parse(localStorage.getItem("randomNumbers")));
-
-
-// Update the displayed progress
 let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
-let currentprogressElement = document.querySelector(".currentprogress");
-if (currentprogressElement) {
-  currentprogressElement.innerText = `Progress: ${progress}`;
-}
+// Update the displayed score
+  let currentprogressElement = document.querySelector(".currentprogress");
+  if (currentprogressElement) {
+      currentprogressElement.innerText = `Progress: ${progress}`;
+  }
+
+
+let currentRandomNumbers = JSON.parse(localStorage.getItem("randomNumbers"));
+console.log("Saved Random Numbers:", currentRandomNumbers);
+displayRandomNumber();
