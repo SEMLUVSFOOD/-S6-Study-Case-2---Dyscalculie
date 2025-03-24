@@ -90,11 +90,10 @@ export function hideShowElements () {
     showRandomly();
 }
 
-
-// Function to show the box for 1 second at a random time within 10 seconds
+// Function to show the box for 1 second at a random time between 3 and 10 seconds
 function showRandomly() {
-    // Random delay time between 0 and 9 seconds (0 - 9000 milliseconds)
-    let randomDelay = Math.random() * 9000;
+    // Random delay time between 3 and 10 seconds (2000 - 10000 milliseconds)
+    let randomDelay = Math.random() * 7000 + 2000;
 
     // Set timeout to show the box after the random delay
     setTimeout(function() {
