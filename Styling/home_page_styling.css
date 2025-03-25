@@ -55,3 +55,17 @@ button:hover {
     border-bottom: .2rem solid #F2BDC7;
     transition: 0.3s;
 }
+
+
+
+.minigame-link button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.minigame-link  {
+    text-decoration: none;
+}
