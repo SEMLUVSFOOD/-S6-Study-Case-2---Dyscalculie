@@ -1,5 +1,8 @@
 import { checkAnswer } from './score_counter.js';
 
+let randomNumberBox = document.querySelector(".RandomNumberBox");
+let answerBox = document.querySelector(".AnswerBox");
+
 export function startGame() {
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
     let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
@@ -93,8 +96,6 @@ export function displayRandomNumberButtons () {
 }
 
 
-let randomNumberBox = document.querySelector(".RandomNumberBox");
-let answerBox = document.querySelector(".AnswerBox");
 
 
 export function hideShowElements () {

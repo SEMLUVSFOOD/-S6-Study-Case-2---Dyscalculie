@@ -1,7 +1,7 @@
 import { displayRandomNumber, hideShowElements } from './game_state.js';
 
 let toAnswer = localStorage.getItem("toAnswer") ? parseInt(localStorage.getItem("toAnswer")) : 0;
-toAnswer = 5;
+toAnswer = 10;
 
 
 export function progressIncrease() {
@@ -58,4 +58,32 @@ export function checkAnswer(clickedButton) {
 
     // Call progressIncrease if needed
     progressIncrease();
+}
+
+
+
+let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+let resultElement = document.querySelector(".results");
+
+let scorePercentage = score/toAnswer * 100;
+if(resultElement) {
+  resultElement.innerHTML = scorePercentage + "%";
+}
+
+let diagnoseText = document.querySelector(".diagnoseText");
+
+if (diagnoseText) {
+    switch(true) {
+        case (scorePercentage <= 50):
+            diagnoseText.innerHTML = "Er is een verhoogde kans op dyscalculie, wij raden u sterk aan om naar een expert te gaan.";
+            break;
+        case (scorePercentage >= 50 && scorePercentage == 80):
+            diagnoseText.innerHTML = "Er is een kans op dyscalculie, wij raden u aan om naar een expert te gaan.";
+            break;
+        case (scorePercentage > 80):
+            diagnoseText.innerHTML = "Volgens deze test heeft u geen dyscalculie, bij twijfel raden we toch aan om naar een expert te gaan.";
+            break;
+        default:
+            diagnoseText.innerHTML = "Er is geen score....";
+    }
 }

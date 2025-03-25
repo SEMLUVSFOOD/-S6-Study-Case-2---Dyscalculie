@@ -7,10 +7,20 @@ let startGameButton = document.querySelector(".startGame");
 if (startGameButton) {
   startGameButton.addEventListener("click", startGame);
 }
+
+let backHomeButton = document.querySelector(".backHome");
+
 // Listen for "Enter" key press to start the game & Generate the 10 Random Numbers
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    startGame();
+  if(startGameButton) {
+    if (event.key === "Enter") {
+      startGame();
+    }
+  }
+  if(backHomeButton) {
+    if (event.key === "Enter") {
+      window.location.href = "../index.html";
+    }
   }
 });
 
@@ -19,10 +29,3 @@ console.log("Saved Random Numbers:", currentRandomNumbers);
 displayRandomNumber();
 
 hideShowElements();
-
-let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
-let resultElement = document.querySelector(".results");
-if(resultElement) {
-  resultElement.innerHTML = score;
-}
-
