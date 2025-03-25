@@ -1,20 +1,11 @@
 body {
+    background-image: url('/Content/IMG/Start\ image\ car_drive.png'); /* Statische afbeelding */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    animation: backgroundAnimation 15s infinite; /* Zorg voor animatie van de achtergrond */
+    transition: background-image 0.5s ease; /* Voeg een transitie toe om de verandering van afbeeldingen vloeiender te maken */
 }
-
-@keyframes backgroundAnimation {
-    0% {
-        background-image: url('/Content/IMG/Start\ image\ car_drive.png'); /* Statische afbeelding */
-    }
-    100% {
-        background-image: url('/Content/IMG/Car_drive.gif'); /* GIF wordt getoond */
-    }
-}
-
 
 
 

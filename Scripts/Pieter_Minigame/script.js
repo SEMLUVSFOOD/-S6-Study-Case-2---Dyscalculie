@@ -16,6 +16,11 @@ const finalResultDisplay = document.getElementById("finalResult");
 startBtn.addEventListener("click", startGame);
 guessBtn.addEventListener("click", checkTiming);
 
+    // Na 3 seconden de timer verbergen
+    setTimeout(() => {
+        startGame();
+    }, 3000);
+
 function startGame() {
     round = 0;
     correctAnswers = 0;
@@ -55,24 +60,20 @@ function startTimer() {
         }
     }, 1000);
 
-    // Na 3 seconden pauzeren we de achtergrond animatie
-    setTimeout(() => {
-        pauseBackgroundAnimation();
-    }, 3000);
-
-    // Na 3 seconden de timer verbergen
+   
+    // Na 4 seconden de timer verbergen en de image tonen
     setTimeout(() => {
         timerDisplay.style.visibility = "hidden";
+        document.body.style.backgroundImage = "url('/Content/IMG/Car_stop_trafficlight.png')";
     }, 3000);
+
+    
 }
 
 function changeBackgroundToGif() {
-    document.body.style.backgroundImage = "url('/Content/IMG/Car_drive.gif')";
-    document.body.style.animationPlayState = "running"; // Start de animatie meteen
-}
+    // Verander de achtergrond naar de GIF
+    document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
 
-function pauseBackgroundAnimation() {
-    document.body.style.animationPlayState = "paused"; // Pauzeer de achtergrond animatie
 }
 
 function checkTiming() {
