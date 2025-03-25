@@ -3,6 +3,11 @@ import { checkAnswer } from './score_counter.js';
 let randomNumberBox = document.querySelector(".RandomNumberBox");
 let answerBox = document.querySelector(".AnswerBox");
 
+const body = document.body;
+const gifUrl = '../../Content/IMG/looped_video.gif'; // Your GIF URL
+const staticImageUrl = '../../Content/IMG/looped_video_still.png'; // Your static image URL (paused state)
+
+
 export function startGame() {
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
     let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
@@ -65,6 +70,9 @@ function handleKeyDown(event) {
 
 function enableAnswerButtons() {
     if (option1 && answerBox.style.display === "flex") {
+
+        body.style.backgroundImage = `url('${staticImageUrl}')`;
+
         // Add event listeners to options
         option1.addEventListener("click", handleOption1Click);
         option2.addEventListener("click", handleOption2Click);
@@ -74,7 +82,9 @@ function enableAnswerButtons() {
 }
 
 function disableAnswerButtons() {
-    console.log("inside disableAnswerButtons");
+
+    body.style.backgroundImage = `url('${gifUrl}')`;
+
     if (option1) {
         // Remove event listeners from options
         option1.removeEventListener("click", handleOption1Click);
