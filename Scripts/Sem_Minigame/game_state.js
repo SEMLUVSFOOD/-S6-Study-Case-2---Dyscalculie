@@ -45,23 +45,46 @@ export function generateRandomNumbers(count = 10) {
 let currentRandomNumbers = JSON.parse(localStorage.getItem("randomNumbers"));
 let option1 = document.querySelector(".option1");
 let option2 = document.querySelector(".option2");
-
-if(option1) {
-    // Add event listeners to options
-    option1.addEventListener("click", () => checkAnswer(1));
-    option2.addEventListener("click", () => checkAnswer(2));  
-    
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "1") {
-            checkAnswer(1)
-        }
-        if (event.key === "2") {
-            checkAnswer(2)
-        }
-    });
-    
-    
+// Define the functions outside so you can reference them later
+function handleOption1Click() {
+    checkAnswer(1);
 }
+
+function handleOption2Click() {
+    checkAnswer(2);
+}
+
+function handleKeyDown(event) {
+    if (event.key === "1") {
+        checkAnswer(1);
+    }
+    if (event.key === "2") {
+        checkAnswer(2);
+    }
+}
+
+function enableAnswerButtons() {
+    if (option1 && answerBox.style.display === "flex") {
+        // Add event listeners to options
+        option1.addEventListener("click", handleOption1Click);
+        option2.addEventListener("click", handleOption2Click);
+
+        document.addEventListener("keydown", handleKeyDown);
+    }
+}
+
+function disableAnswerButtons() {
+    console.log("inside disableAnswerButtons");
+    if (option1) {
+        // Remove event listeners from options
+        option1.removeEventListener("click", handleOption1Click);
+        option2.removeEventListener("click", handleOption2Click);
+
+        document.removeEventListener("keydown", handleKeyDown);
+    }
+}
+
+
 
 export function displayRandomNumber(){
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
@@ -104,9 +127,9 @@ export function hideShowElements () {
 
 // Function to show the box for 1 second at a random time between 3 and 10 seconds
 function showRandomly() {
+    disableAnswerButtons();
     // Random delay time between 3 and 10 seconds (2000 - 10000 milliseconds)
     let randomDelay = Math.random() * 7000 + 2000;
-
     // Set timeout to show the box after the random delay
     setTimeout(function() {
         // Show the RandomNumberBox
@@ -119,6 +142,7 @@ function showRandomly() {
             // Wait for 2 seconds before showing the answerBox
             setTimeout(function() {
                 answerBox.style.display = 'flex';
+                enableAnswerButtons();
             }, 1500); // 2-second delay before displaying answerBox
         }, 1000); // Hide after 1 second
     }, randomDelay);
