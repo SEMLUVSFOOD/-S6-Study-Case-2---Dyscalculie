@@ -82,10 +82,10 @@ function enableAnswerButtons() {
 }
 
 function disableAnswerButtons() {
-
-    body.style.backgroundImage = `url('${gifUrl}')`;
-
     if (option1) {
+        
+        body.style.backgroundImage = `url('${gifUrl}')`;
+
         // Remove event listeners from options
         option1.removeEventListener("click", handleOption1Click);
         option2.removeEventListener("click", handleOption2Click);
