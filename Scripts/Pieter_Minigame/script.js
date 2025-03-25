@@ -22,6 +22,9 @@ function startGame() {
     progressBar.style.width = "0%";
     finalResultDisplay.innerText = "";
     startTimer();
+
+    // Start de achtergrond animatie wanneer de timer start
+    changeBackgroundToGif();
 }
 
 function startTimer() {
@@ -52,10 +55,24 @@ function startTimer() {
         }
     }, 1000);
 
+    // Na 3 seconden pauzeren we de achtergrond animatie
+    setTimeout(() => {
+        pauseBackgroundAnimation();
+    }, 3000);
+
     // Na 3 seconden de timer verbergen
     setTimeout(() => {
         timerDisplay.style.visibility = "hidden";
     }, 3000);
+}
+
+function changeBackgroundToGif() {
+    document.body.style.backgroundImage = "url('/Content/IMG/Car_drive.gif')";
+    document.body.style.animationPlayState = "running"; // Start de animatie meteen
+}
+
+function pauseBackgroundAnimation() {
+    document.body.style.animationPlayState = "paused"; // Pauzeer de achtergrond animatie
 }
 
 function checkTiming() {
@@ -86,6 +103,9 @@ function checkTiming() {
             showFinalResult();
         }, 2000);
     }
+
+    // Start de achtergrond animatie weer wanneer 'Nu!' is gedrukt
+    document.body.style.animationPlayState = "running";
 }
 
 function updateProgress() {

@@ -5,19 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pieter Minigame</title>
     <script defer src="../Scripts/Pieter_Minigame/script.js" type="module"></script>
-
-    <style>
-        .traffic-light { display: flex; flex-direction: column; align-items: center; margin: 20px; }
-        .light { width: 40px; height: 40px; border-radius: 50%; background-color: grey; margin: 5px; }
-        .car { font-size: 30px; margin-top: 20px; }
-    
-        #progressBar {
-            width: 0%;
-            height: 20px;
-            background-color: green;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/Styling/pieter_minigame.css">
 
 </head>
 <body>
@@ -30,7 +18,7 @@
     <button id="startBtn">Start Timer</button>
     <button id="guessBtn" disabled>Nu!</button>
 
-    <p>Resultaat: <span id="result"></span></p>
+    <p>Voortgang: <span id="result"></span></p>
     <div id="progressBar"></div>
     <p id="finalResult"></p>
 
