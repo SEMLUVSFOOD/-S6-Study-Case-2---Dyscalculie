@@ -1,29 +1,44 @@
 let timer;
 let countdown;
-let targetTime; 
-let hasClicked = false; // Voorkomt meerdere klikken per ronde
-let timeToAnwser = 1.5;
+let targetTime;
+let hasClicked = false;
+let timeToAnswer = 1.5; // Maximale tijdsverschil om correct te zijn
+let round = 0;
+let correctAnswers = 0;
+const totalRounds = 3;
 
 const startBtn = document.getElementById("startBtn");
 const guessBtn = document.getElementById("guessBtn");
 const timerDisplay = document.getElementById("timer");
-const resultDisplay = document.getElementById("result");
+const progressBar = document.getElementById("progressBar");
+const finalResultDisplay = document.getElementById("finalResult");
 
-startBtn.addEventListener("click", startTimer);
+startBtn.addEventListener("click", startGame);
 guessBtn.addEventListener("click", checkTiming);
 
+function startGame() {
+    round = 0;
+    correctAnswers = 0;
+    progressBar.style.width = "0%";
+    finalResultDisplay.innerText = "";
+    startTimer();
+}
+
 function startTimer() {
-    if (timer) return; // Voorkomt dat meerdere timers tegelijk starten
+    console.log("in start timer functie");
+    if (round >= totalRounds) return; // Stop als het maximum aantal rondes is bereikt
 
-    hasClicked = false; // Reset klikstatus bij nieuwe ronde
-    guessBtn.disabled = false; // Maak de knop weer klikbaar
-    countdown = Math.floor(Math.random() * 8) + 8; // Getal tussen 8 en 15
+    if (timer) clearInterval(timer); // Stop de vorige timer als die er is
+
+    hasClicked = false;
+    guessBtn.disabled = false;
+    countdown = Math.floor(Math.random() * 8) + 8; // Random getal voor de timer
     timerDisplay.innerText = countdown;
-    timerDisplay.style.visibility = "visible"; // Timer weer tonen
-    resultDisplay.innerText = ""; // Vorig resultaat wissen
+    timerDisplay.style.visibility = "visible"; // Maak de timer zichtbaar bij het starten
 
-    targetTime = Date.now() + countdown * 1000; // Opslaan wanneer de timer afloopt
+    targetTime = Date.now() + countdown * 1000;
 
+    // Start de timer die aftelt
     timer = setInterval(() => {
         let timeLeft = Math.ceil((targetTime - Date.now()) / 1000);
 
@@ -31,7 +46,7 @@ function startTimer() {
             timerDisplay.innerText = timeLeft;
         }
 
-        if (Date.now() >= targetTime) { // Timer is op 0
+        if (Date.now() >= targetTime) {
             clearInterval(timer);
             timer = null;
         }
@@ -44,22 +59,40 @@ function startTimer() {
 }
 
 function checkTiming() {
-    if (hasClicked) return; // Voorkomt meerdere klikken per ronde
-    hasClicked = true; // Zet status op 'geklikt'
-    guessBtn.disabled = true; // Schakel de knop uit na eerste klik
+    console.log("in check timer functie");
+    if (hasClicked) return;
+    hasClicked = true;
+    guessBtn.disabled = true;
 
     let currentTime = Date.now();
-    let diff = Math.abs(currentTime - targetTime) / 1000; // Tijdverschil in seconden
+    let diff = Math.abs(currentTime - targetTime) / 1000;
 
-    if (diff <= timeToAnwser) {
-        resultDisplay.innerText = "Goed!";
-    } else {
-        resultDisplay.innerText = "Fout!";
+    if (diff <= timeToAnswer) {
+        correctAnswers++;
     }
 
-    // Start een nieuwe ronde 4 seconden nadat de speler heeft geklikt
-    setTimeout(() => {
-        resultDisplay.innerText = ""; // Wis het resultaat
-        startTimer(); // Start een nieuwe timer
-    }, 4000);
+    round++; // Ga naar de volgende ronde
+    updateProgress();
+
+    if (round < totalRounds) {
+        // Start een nieuwe ronde 4 seconden na het klikken op 'Nu!'
+        setTimeout(() => {
+            startTimer(); // Start een nieuwe timer na 4 seconden
+            console.log("in reset functie");
+        }, 4000); // 4 seconden wachten voordat de timer opnieuw start
+    } else {
+        // Als alle rondes zijn gespeeld, toon het eindresultaat na 2 seconden
+        setTimeout(() => {
+            showFinalResult();
+        }, 2000);
+    }
+}
+
+function updateProgress() {
+    let progressPercentage = (round / totalRounds) * 100;
+    progressBar.style.width = progressPercentage + "%";
+}
+
+function showFinalResult() {
+    finalResultDisplay.innerText = `Je hebt ${correctAnswers}/${totalRounds} goed beantwoord!`;
 }
