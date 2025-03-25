@@ -46,7 +46,18 @@ let option2 = document.querySelector(".option2");
 if(option1) {
     // Add event listeners to options
     option1.addEventListener("click", () => checkAnswer(1));
-    option2.addEventListener("click", () => checkAnswer(2));   
+    option2.addEventListener("click", () => checkAnswer(2));  
+    
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "1") {
+            checkAnswer(1)
+        }
+        if (event.key === "2") {
+            checkAnswer(2)
+        }
+    });
+    
+    
 }
 
 export function displayRandomNumber(){
