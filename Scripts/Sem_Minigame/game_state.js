@@ -109,7 +109,7 @@ function showRandomly() {
     // Set timeout to show the box after the random delay
     setTimeout(function() {
         // Show the RandomNumberBox
-        randomNumberBox.style.display = 'block';
+        randomNumberBox.style.display = 'flex';
 
         // Hide the box after 1 second (1000 milliseconds)
         setTimeout(function() {
@@ -117,7 +117,7 @@ function showRandomly() {
 
             // Wait for 2 seconds before showing the answerBox
             setTimeout(function() {
-                answerBox.style.display = 'block';
+                answerBox.style.display = 'flex';
             }, 1500); // 2-second delay before displaying answerBox
         }, 1000); // Hide after 1 second
     }, randomDelay);

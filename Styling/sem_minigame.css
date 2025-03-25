@@ -2,6 +2,99 @@
     font-size: 100px;
 }
 
+
 .AnswerBox, .RandomNumberBox {
     display: none;
+}
+
+.RandomNumberBox {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+.randomNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    left: 60vw;
+    top: 10vh;
+    font-family: "Poppins", sans-serif;
+    color: black;
+    background-color: white;
+    border-radius: 10000px;
+    width: 150px;  /* Set width */
+    height: 150px; /* Set height equal to width */
+    border: #E74001 solid 15px;
+}
+
+body {
+    background-image: url('../Content/IMG/looped_video.gif');
+    background-size: cover; /* Adjusts the size to cover the whole screen */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-position: center center; /* Centers the GIF */
+    background-attachment: fixed; /* Keeps it fixed while scrolling */
+}
+
+
+.currentprogress {
+    width: 25vw;
+    background-color: #ffffff;
+    border: black solid 2px;
+    border-radius: 16px;
+    position: fixed;
+}
+
+.progressbar {
+    width: 0%;
+    display: block;
+    background-color: #F2B707;
+    border-radius: 12px;
+    font-size: .5rem;
+}
+
+
+
+.centerTheAnswerBox {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.AnswerBox {
+    position: fixed;
+    width: 90vw;
+    height: 90vh;
+    background-color: #D2C500;
+    align-items: center;
+    border-radius: 16px;
+    flex-direction: column;
+}
+.AnswerBox p {
+    font-size: .5rem;
+}
+
+.AnswerBox button {
+    width: 300px;
+    height: 300px;
+    border: #E74001 solid 15px;
+    background-color: white;
+    border-radius: 10000px;
+    padding: 20px;
+}
+.AnswerBox button:hover {
+    cursor: pointer;
+}
+
+.answersButtons {
+    display: flex;
+    gap: 200px;
+}
+
+.imagesAnswerButtons {
+    display: flex;
+    margin-top: 20px;
+    gap: 450px;
 }

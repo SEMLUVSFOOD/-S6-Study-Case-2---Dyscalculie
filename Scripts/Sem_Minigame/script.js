@@ -14,14 +14,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
-// Update the displayed score
-  let currentprogressElement = document.querySelector(".currentprogress");
-  if (currentprogressElement) {
-      currentprogressElement.innerText = `Progress: ${progress}`;
-  }
-
-
 let currentRandomNumbers = JSON.parse(localStorage.getItem("randomNumbers"));
 console.log("Saved Random Numbers:", currentRandomNumbers);
 displayRandomNumber();
@@ -33,3 +25,4 @@ let resultElement = document.querySelector(".results");
 if(resultElement) {
   resultElement.innerHTML = score;
 }
+

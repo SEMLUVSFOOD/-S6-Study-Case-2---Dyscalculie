@@ -1,22 +1,28 @@
 import { displayRandomNumber, hideShowElements } from './game_state.js';
 
+let toAnswer = localStorage.getItem("toAnswer") ? parseInt(localStorage.getItem("toAnswer")) : 0;
+toAnswer = 5;
+
+
 export function progressIncrease() {
     let progress = localStorage.getItem("progress") ? parseInt(localStorage.getItem("progress")) : 0;
 
     progress++;
 
     // Check if score hits 10, then reset
-    if (progress >= 2) {
+    if (progress >= toAnswer) {
         progress = 0; // Reset the score
         window.location.href = "sem_minigame_results.html";
     }
 
     localStorage.setItem("progress", progress); // Save updated score
 
-    // Update the displayed score
-    let currentprogressElement = document.querySelector(".currentprogress");
+    // Update the displayed progress as a percentage
+    let currentprogressElement = document.querySelector(".progressbar");
+
     if (currentprogressElement) {
-        currentprogressElement.innerText = `Progress: ${progress}`;
+        let percentage = (progress / toAnswer) * 100; // Calculate percentage
+        currentprogressElement.style.width = percentage + "%"; // Update width
     }
 
     displayRandomNumber();
