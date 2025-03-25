@@ -7,13 +7,18 @@
     <link rel="stylesheet" href="./Styling/basic_style.css">
     <link rel="stylesheet" href="./Styling/home_page_styling.css">
     <link rel="icon" type="image/png" href="./Content/IMG/Logo.png">
+    <script defer src="./Scripts/homeScreenSelect.js" type="module"></script>
 </head>
 <body> 
     <div class="mainelement">
         <h1> <span>Reken</span> <span id="makeTextPink">Reis</span> </h1>
         <p> Een ontdekkingsreis door de wereld van getallen. <br> <a class="moreInfo" href="./Other_HTML/more_info.html"> meer info </a>  </p>
-        <a href="./Other_HTML/sem_minigame.html"> <button> Start minigame 1 🎮⛔️ </button></a>
-        <a href="./Other_HTML/pieter_minigame.html"> <button> Start minigame 2 🎮🚦 </button></a>
+        <a href="./Other_HTML/sem_minigame.html" class="minigame-link">
+            <button> Start minigame 1 🎮⛔️ <img style="width: 70px;" src="./Content/IMG/Button1.png" alt="Button Image"> </button>
+        </a>     
+        <a href="./Other_HTML/pieter_minigame.html" class="minigame-link">
+            <button> Start minigame 2 🎮🚦 <img style="width: 70px;" src="./Content/IMG/Button2.png" alt="Button Image"> </button>
+        </a>      
     </div>
 </body>
 </html>
