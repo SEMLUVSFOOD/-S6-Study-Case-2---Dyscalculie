@@ -121,5 +121,9 @@ function updateProgress() {
 }
 
 function showFinalResult() {
-    finalResultDisplay.innerText = `Je hebt ${correctAnswers}/${totalRounds} goed beantwoord!`;
+    // Sla de score op in Local Storage
+    localStorage.setItem("gameScore", `${correctAnswers}/${totalRounds}`);
+
+    // Redirect naar de resultatenpagina
+    window.location.href = "pieter_minigame_results.html"; // Zorg dat deze pagina bestaat
 }
