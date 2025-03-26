@@ -29,7 +29,8 @@ function startGame() {
     startTimer();
 
     // Start de achtergrond animatie wanneer de timer start
-    changeBackgroundToGif();
+    document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
+
 }
 
 function startTimer() {
@@ -65,15 +66,9 @@ function startTimer() {
     setTimeout(() => {
         timerDisplay.style.visibility = "hidden";
         document.body.style.backgroundImage = "url('/Content/IMG/Car_stop_trafficlight.png')";
-    }, 3000);
+    }, 2950);
 
     
-}
-
-function changeBackgroundToGif() {
-    // Verander de achtergrond naar de GIF
-    document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
-
 }
 
 function checkTiming() {
@@ -82,12 +77,16 @@ function checkTiming() {
     hasClicked = true;
     guessBtn.disabled = true;
 
+    document.body.style.backgroundImage = "url('/Content/IMG/Start_car_drive.gif')";
+
     let currentTime = Date.now();
     let diff = Math.abs(currentTime - targetTime) / 1000;
 
     if (diff <= timeToAnswer) {
         correctAnswers++;
     }
+
+
 
     round++; // Ga naar de volgende ronde
     updateProgress();
@@ -97,6 +96,15 @@ function checkTiming() {
         setTimeout(() => {
             startTimer(); // Start een nieuwe timer na 4 seconden
             console.log("in reset functie");
+
+            document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
+
+            setTimeout(() => {
+                timerDisplay.style.visibility = "hidden";
+                document.body.style.backgroundImage = "url('/Content/IMG/Car_stop_trafficlight.png')";
+            }, 2950);
+
+
         }, 4000); // 4 seconden wachten voordat de timer opnieuw start
     } else {
         // Als alle rondes zijn gespeeld, toon het eindresultaat na 2 seconden
@@ -105,8 +113,6 @@ function checkTiming() {
         }, 2000);
     }
 
-    // Start de achtergrond animatie weer wanneer 'Nu!' is gedrukt
-    document.body.style.animationPlayState = "running";
 }
 
 function updateProgress() {
