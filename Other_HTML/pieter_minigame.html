@@ -9,19 +9,28 @@
 
 </head>
 <body>
-
-    <a href="/index.html"> <button>Terug naar home </button></a>
-
-    <h1>Reactietimer</h1>
-    <p>Tijd: <span id="timer">-</span> seconden</p>
-
-    
-    <button id="startBtn">Start Timer</button>
-    <button id="guessBtn" disabled>Nu!</button>
-
+    <a  href="/index.html">
+        <button id="btnBackToHome"> &#x2190; Terug naar home</button>
+    </a>
+        
     <p>Voortgang: <span id="result"></span></p>
-    <div id="progressBar"></div>
+
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
     <p id="finalResult"></p>
+
+    <div class="timeContainer">
+        <p id="time"><span id="timer">15s</span></p>
+    </div>
+    
+    <div id="guessBtnContainer">
+        <button id="guessBtn" disabled>
+        Rijden!
+        <img src="/Content/IMG/spacebar.png" alt="">
+        </button>
+    </div>
 
 </body>
 </html>

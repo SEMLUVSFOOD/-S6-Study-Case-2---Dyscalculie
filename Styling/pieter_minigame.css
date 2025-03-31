@@ -1,21 +1,133 @@
+:root
+{
+    margin: 0;
+}
+
 body {
     background-image: url('/Content/IMG/Start\ image\ car_drive.png'); /* Statische afbeelding */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    transition: background-image 0.5s ease; /* Voeg een transitie toe om de verandering van afbeeldingen vloeiender te maken */
+    
+    margin: 0;
 }
-
 
 
 .traffic-light { display: flex; flex-direction: column; align-items: center; margin: 20px; }
 .light { width: 40px; height: 40px; border-radius: 50%; background-color: grey; margin: 5px; }
 .car { font-size: 30px; margin-top: 20px; }
 
-#progressBar {
-    width: 0%;
-    height: 20px;
-    background-color: green;
-    margin-top: 20px;
+#progressBarContainer {
+    width: 25%; 
+    height: 1rem; 
+    border: 2px solid #f2b705;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+#progressBar {
+    height: 100%; 
+    background-color: #F2BDC7; 
+    width: 0%; 
+    border-radius: 5px; 
+}
+
+h1
+{
+    font-family: "Poppins", sans-serif;
+    color: #F2BDC7
+}
+
+
+p
+{
+    font-family: "Poppins", sans-serif;
+    color: #f2b705;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+button
+{
+        color: #F2BDC7;
+        width: 50%;
+        height: 50%;
+        font-size: 2rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+    color: black;
+    transition: 0.3s;
+    background-color: #F2BDC7;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+
+#btnBackToHome
+{
+    width: 15%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.timeContainer {
+    display: flex;
+    justify-content: left;
+    width: 5%;
+    z-index: 10;
+    margin-top: 10rem;
+    margin-left: 2rem;
+}
+
+#time {
+    background-color: #F2BDC7;
+    border-radius: 100%; 
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    
+}
+
+#guessBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 5rem;
+    width: 100%;
+    z-index: 10;
+}
+
+#guessBtn {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr;
+    width: 30rem;
+    height: 7rem;
+    text-align: center;
+    padding: 0.8rem;
+}
+
+#guessBtn img {
+    width: 50%;
+    height: auto;
+}
+
+
+
+
