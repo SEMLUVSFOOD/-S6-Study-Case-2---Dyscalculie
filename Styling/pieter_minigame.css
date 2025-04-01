@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url('/Content/IMG/Start\ image\ car_drive.png'); /* Statische afbeelding */
+    background-image: url('../Content/IMG/Start\ image\ car_drive.png'); /* Statische afbeelding */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

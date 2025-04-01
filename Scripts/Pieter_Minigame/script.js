@@ -39,7 +39,7 @@ function startGame() {
     startTimer();
 
     // Start de achtergrond animatie wanneer de timer start
-    document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
+    document.body.style.backgroundImage = "url('../Content/IMG/looped_video.gif')";
 }
 
 function startTimer() {
@@ -77,7 +77,7 @@ function startTimer() {
     setTimeout(() => {
         timerDisplay.style.visibility = "hidden";
         timeContainer.style.visibility = "hidden"; // Verberg de cirkel
-        document.body.style.backgroundImage = "url('/Content/IMG/Car_stop_trafficlight.png')";
+        document.body.style.backgroundImage = "url('../Content/IMG/Car_stop_trafficlight.png')";
     }, 2950); // Zorg ervoor dat deze tijd iets korter is dan de timer van 3 seconden
 }
 
@@ -86,7 +86,7 @@ function checkTiming() {
     hasClicked = true;
     guessBtn.disabled = true;
 
-    document.body.style.backgroundImage = "url('/Content/IMG/Start_car_drive.gif')";
+    document.body.style.backgroundImage = "url('../Content/IMG/Start_car_drive.gif')";
 
     let currentTime = Date.now();
     let diff = Math.abs(currentTime - targetTime) / 1000;
@@ -102,12 +102,12 @@ function checkTiming() {
         // Start een nieuwe ronde 4 seconden na het klikken op 'Nu!'
         setTimeout(() => {
             startTimer(); // Start een nieuwe timer na 4 seconden
-            document.body.style.backgroundImage = "url('/Content/IMG/looped_video.gif')";
+            document.body.style.backgroundImage = "url('../Content/IMG/looped_video.gif')";
 
             setTimeout(() => {
                 timerDisplay.style.visibility = "hidden";
                 timeContainer.style.visibility = "hidden"; // Verberg de cirkel
-                document.body.style.backgroundImage = "url('/Content/IMG/Car_stop_trafficlight.png')";
+                document.body.style.backgroundImage = "url('../Content/IMG/Car_stop_trafficlight.png')";
             }, 2950);
         }, 4000); // 4 seconden wachten voordat de timer opnieuw start
     } else {
@@ -139,6 +139,6 @@ if (startGameButton) {
 document.addEventListener("keydown", function(event) {
     console.log("in keyboard")
     if (event.key === "Enter") {
-        window.location.href = "./pieter_minigame.html";
+        window.location.href = "pieter_minigame.html";
     }
 });
