@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pieter Minigame</title>
+    <title>Pieter | Minigame</title>
     <script defer src="../Scripts/Pieter_Minigame/script.js" type="module"></script>
+    <link rel="stylesheet" href="/Styling/pieter_minigame.css">
+
 </head>
 <body>
+        
+    <p>Voortgang: <span id="result"></span></p>
 
-    this is the body 
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <p id="finalResult"></p>
+
+    <div class="timeContainer">
+        <p id="time"><span id="timer">15s</span></p>
+    </div>
+    
+    <div id="guessBtnContainer">
+        <button id="guessBtn" disabled>
+        Rijden!
+        <img src="/Content/IMG/Spatiebalk.png" alt="">
+        </button>
+    </div>
 
 </body>
 </html>
