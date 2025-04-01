@@ -139,6 +139,6 @@ if (startGameButton) {
 document.addEventListener("keydown", function(event) {
     console.log("in keyboard")
     if (event.key === "Enter") {
-        window.location.href = "./Other_HTML/pieter_minigame.html";
+        window.location.href = "./pieter_minigame.html";
     }
 });
