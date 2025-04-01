@@ -77,7 +77,7 @@ if (diagnoseText) {
         case (scorePercentage <= 50):
             diagnoseText.innerHTML = "Er is een verhoogde kans op dyscalculie, wij raden u sterk aan om naar een expert te gaan.";
             break;
-        case (scorePercentage >= 50 && scorePercentage == 80):
+        case (scorePercentage >= 50 || scorePercentage == 80):
             diagnoseText.innerHTML = "Er is een kans op dyscalculie, wij raden u aan om naar een expert te gaan.";
             break;
         case (scorePercentage > 80):
