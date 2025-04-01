@@ -3,6 +3,6 @@ document.addEventListener("keydown", function(event) {
             window.location.href = "./Other_HTML/sem_minigame.html";
         }
         if (event.key === "2") {
-            window.location.href = "./Other_HTML/pieter_minigame.html";
+            window.location.href = "./Other_HTML/pieter_minigame_explanation.html";
         }
 });

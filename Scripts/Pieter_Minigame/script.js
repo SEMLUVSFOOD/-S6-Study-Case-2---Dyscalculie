@@ -13,7 +13,9 @@ const progressBar = document.getElementById("progressBar");
 const finalResultDisplay = document.getElementById("finalResult");
 const timeContainer = document.querySelector(".timeContainer"); // De container voor de timer en cirkel
 
-guessBtn.addEventListener("click", checkTiming);
+if (guessBtn) {
+    guessBtn.addEventListener("click", checkTiming);
+}
 
 // Start de game automatisch na 3 seconden
 window.onload = function() {
@@ -128,3 +130,15 @@ function showFinalResult() {
     // Redirect naar de resultatenpagina
     window.location.href = "pieter_minigame_results.html"; 
 }
+
+let startGameButton = document.querySelector(".startGame");
+if (startGameButton) {
+  startGameButton.addEventListener("click", startGame);
+}
+
+document.addEventListener("keydown", function(event) {
+    console.log("in keyboard")
+    if (event.key === "Enter") {
+        window.location.href = "./Other_HTML/pieter_minigame.html";
+    }
+});

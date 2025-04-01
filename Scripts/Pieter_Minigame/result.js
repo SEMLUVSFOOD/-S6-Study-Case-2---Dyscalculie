@@ -13,3 +13,22 @@ window.onload = function() {
         }
     });
 };
+
+let diagnoseText = document.querySelector(".diagnoseText");
+let score = localStorage.getItem("gameScore"); // Haal de score op
+console.log(score);
+if (diagnoseText) {
+    switch(true) {
+        case (score == '0/3' || score == '1/3'):
+            diagnoseText.innerHTML = "Er is een verhoogde kans op dyscalculie, wij raden u sterk aan om naar een expert te gaan.";
+            break;
+        case (score == '2/3'):
+            diagnoseText.innerHTML = "Er is een kans op dyscalculie, wij raden u aan om naar een expert te gaan.";
+            break;
+        case (score == '3/3'):
+            diagnoseText.innerHTML = "Volgens deze test heeft u geen dyscalculie, bij twijfel raden we toch aan om naar een expert te gaan.";
+            break;
+        default:
+            diagnoseText.innerHTML = "Er is geen score....";
+    }
+}
